@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ABCRetails.Models.Customer>
+@{
+    ViewData["Title"] = "Customers";
+    Layout = "_Layout";
+}
+
+<h2 class="mb-4">Customers</h2>
+
+<a class="btn btn-success mb-3" href="/Customer/Create">➕ Add New Customer</a>
+
+<table class="table table-hover table-bordered shadow-sm">
+    <thead class="table-primary">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Shipping Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Name @c.Surname</td>
+                <td>@c.Email</td>
+                <td>@c.Username</td>
+                <td>@c.ShippingAddress</td>
+            </tr>
+        }
+    </tbody>
+</table>

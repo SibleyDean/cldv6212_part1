@@ -1,0 +1,31 @@
+﻿@model ABCRetails.Models.Customer
+@{
+    ViewData["Title"] = "Add Customer";
+    Layout = "_Layout";
+}
+
+<h2>Add Customer</h2>
+<form asp-action="Create" method="post" class="card p-4 shadow-sm">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">First Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Surname" class="form-label">Surname</label>
+        <input asp-for="Surname" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label">Username</label>
+        <input asp-for="Username" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">Email</label>
+        <input asp-for="Email" type="email" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="ShippingAddress" class="form-label">Shipping Address</label>
+        <textarea asp-for="ShippingAddress" class="form-control"></textarea>
+    </div>
+    <button class="btn btn-primary">Save</button>
+    <a class="btn btn-secondary" href="/Customer">Cancel</a>
+</form>

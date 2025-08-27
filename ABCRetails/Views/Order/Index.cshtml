@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ABCRetails.Models.Order>
+@{
+    ViewData["Title"] = "Orders";
+    Layout = "_Layout";
+}
+
+<h2 class="mb-4">Orders</h2>
+
+<a class="btn btn-success mb-3" href="/Order/Create">➕ Create Order</a>
+
+<table class="table table-bordered shadow-sm">
+    <thead class="table-primary">
+        <tr>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Date</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var o in Model)
+        {
+            <tr>
+                <td>@o.Username</td>
+                <td>@o.ProductName</td>
+                <td>@o.OrderDate.ToShortDateString()</td>
+                <td>@o.Quantity</td>
+                <td>@o.TotalPrice.ToString("C")</td>
+                <td>
+                    @if (o.Status == "Pending")
+                    {
+                        <span class="badge bg-warning">@o.Status</span>
+                    }
+                    else if (o.Status == "Completed")
+                    {
+                        <span class="badge bg-success">@o.Status</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">@o.Status</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
